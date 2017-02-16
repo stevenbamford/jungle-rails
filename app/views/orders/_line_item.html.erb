@@ -1,4 +1,5 @@
 <tr>
+  <% @order_total += (i.product.price * i.quantity) %>
   <td> <img src="<%= i.product.image.tiny %>"> </td>
   <td>
     <h4><%= i.product.name %></h4>
@@ -7,5 +8,5 @@
   </td>
   <td> $<%= i.product.price  %> </td>
   <td> <%= i.quantity %> </td>
-  <td> $<%= i.total_price_cents %> </td>
+  <td> $<%= i.product.price * i.quantity %> </td>
 </tr>

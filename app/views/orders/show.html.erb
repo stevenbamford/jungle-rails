@@ -17,6 +17,7 @@
         </tr>
     </thead>
     <tbody>
+        <% @order_total = 0 %>
         <% @order.line_items.each do |i| %>
         <%= render 'line_item', i: i %>
         <% end %>
@@ -27,7 +28,7 @@
               TOTAL:
           </th>
           <th>
-              $<%= @order.total_cents %>
+              $<%= @order.total  %>
           </th>
     </tfoot>
   </table>
