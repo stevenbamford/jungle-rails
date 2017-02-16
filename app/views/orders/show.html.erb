@@ -17,21 +17,17 @@
         </tr>
     </thead>
     <tbody>
-
-    <% @order.line_items.each do |i| %>
-
-     <%= render 'line_item', i: i %>
-
-    <% end %>
-
+        <% @order.line_items.each do |i| %>
+        <%= render 'line_item', i: i %>
+        <% end %>
     </tbody>
     <tfoot>
        <tr>
           <th colspan="4">
-            TOTAL:
+              TOTAL:
           </th>
           <th>
-          $<%= @order.total_cents %>
+              $<%= @order.total_cents %>
           </th>
     </tfoot>
   </table>
