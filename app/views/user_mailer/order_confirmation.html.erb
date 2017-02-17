@@ -4,12 +4,16 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Thank you for placing your order. Your order id is @order.id></h1>
-    <% @order.total = 0 %>
+    <h1>Thank you for placing your order. Your order id is <%= @order.id %>.</h1>
+    <h3> You ordered the following: </h3>
+    <% @order_total = 0 %>
+    <ul>
     <% @order.line_items.each do |i| %>
       <% @order_total += (i.product.price * i.quantity) %>
-      <p> i.product.name </p>
+      <li> <%= i.product.name %> (<%=i.quantity%>) </li>
+    </ul>
     <% end %>
-      <h2> Your order total is $<%= @order.total $> </h2>
+      <h3> Order total is $<%= @order.total %>. </h3>
+      <p> Thanks for stopping by. You survived the jungle! </p>
   </body>
 </html>

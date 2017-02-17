@@ -52,7 +52,8 @@ class OrdersController < ApplicationController
         )
       end
     end
-    order.save!
+    if order.save!
+    end
     order
   end
 
