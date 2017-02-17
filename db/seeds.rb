@@ -134,6 +134,8 @@ cat3.products.create!({
 
 ## USERS
 
+User.destroy_all
+
 User.create!({
   first_name: 'Joe',
   last_name: 'Bob',
@@ -161,6 +163,39 @@ User.create!({
   email: 'jessica@fresh.com',
   password_digest: 'password'
 })
+
+## REVIEWS
+
+Review.destroy_all
+
+Review.create!({
+  product_id: 1,
+  user_id: 1,
+  description: "Fantastic. Great.",
+  rating: 3
+  })
+
+Review.create!({
+  product_id: 2,
+  user_id: 2,
+  description: "Totes buy this.",
+  rating: 4
+  })
+
+Review.create!({
+  product_id: 3,
+  user_id: 3,
+  description: "Jungle must buy.",
+  rating: 5
+  })
+
+Review.create!({
+  product_id: 4,
+  user_id: 4,
+  description: "You gotta buy this!",
+  rating: 4
+  })
+
 
 
 puts "DONE!"
