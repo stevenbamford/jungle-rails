@@ -53,6 +53,7 @@ class OrdersController < ApplicationController
       end
     end
     if order.save!
+      UserMailer.order_confirmation(order).deliver_later
     end
     order
   end
