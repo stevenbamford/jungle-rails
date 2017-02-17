@@ -6,7 +6,10 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
-    @reviews = Review.find [@product.id]
+    @reviews = Review.where(product_id: @product.id)
+    @reviews.each do |review|
+      puts review.description
+    end
   end
 
 end
