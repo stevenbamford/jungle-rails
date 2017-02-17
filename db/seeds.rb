@@ -136,28 +136,28 @@ cat3.products.create!({
 
 User.destroy_all
 
-User.create!({
+user1 = User.create!({
   first_name: 'Joe',
   last_name: 'Bob',
   email: 'joebob@joebob.com',
   password_digest: 'password'
 })
 
-User.create!({
+user2 = User.create!({
   first_name: 'Fred',
   last_name: 'Mayes',
   email: 'freddy@test.com',
   password_digest: 'password'
 })
 
-User.create!({
+user3 = User.create!({
   first_name: 'Jane',
   last_name: 'Doe',
   email: 'janedoe@email.com',
   password_digest: 'password'
 })
 
-User.create!({
+user4 = User.create!({
   first_name: 'Jessica',
   last_name: 'Frankenstein',
   email: 'jessica@fresh.com',
@@ -178,31 +178,163 @@ Review.create!({
 Review.create!({
   product_id: 1,
   user_id: 2,
-  description: "I agree with OP.",
+  description: "Thunder, thunder, thundercats, Ho! Thundercats are on the move, Thundercats are loose. Feel the magic, hear the roar, Thundercats are loose. Thunder, thunder, thunder, Thundercats! Thunder, thunder, thunder, Thundercats! Thunder, thunder, thunder, Thundercats! Thunder, thunder, thunder, Thundercats! Thundercats!",
   rating: 4
   })
 
 Review.create!({
   product_id: 2,
-  user_id: 2,
-  description: "Totes buy this.",
+  user_id: 3,
+  description: "80 days around the world, we'll find a pot of gold just sitting where the rainbow's ending. Time - we'll fight against the time, and we'll fly on the white wings of the wind. ",
+  rating: 4
+  })
+
+Review.create!({
+  product_id: 2,
+  user_id: 4,
+  description: "Readymade cornhole raclette franzen snackwave, hexagon ethical actually yr vaporware pabst. Coloring book banjo gastropub poke. ",
+  rating: 5
+  })
+
+Review.create!({
+  product_id: 3,
+  user_id: 1,
+  description: "Meggings cronut trust fund taxidermy waistcoat.",
   rating: 4
   })
 
 Review.create!({
   product_id: 3,
+  user_id: 4,
+  description: "Fam pour-over small batch kombucha, hoodie green juice lomo gastropub post-ironic farm-to-table cornhole kinfolk cold-pressed. Air plant listicle cold-pressed intelligentsia.",
+  rating: 3
+  })
+
+Review.create!({
+  product_id: 4,
+  user_id: 3,
+  description: "Chartreuse tumeric art party mixtape, roof party vinyl scenester. XOXO celiac drinking vinegar listicle poke, letterpress gochujang. Cray kitsch craft beer cliche vinyl pour-over. ",
+  rating: 4
+  })
+
+Review.create!({
+  product_id: 4,
+  user_id: 2,
+  description: "Poke tousled food truck, freegan austin seitan aesthetic. YOLO tbh kogi master cleanse flannel, bitters disrupt microdosing brooklyn street art unicorn before they sold out.",
+  rating: 4
+  })
+
+Review.create!({
+  product_id: 5,
+  user_id: 3,
+  description: "Occupy viral farm-to-table pop-up man bun. Locavore XOXO mixtape jean shorts fam cray, succulents DIY gentrify kitsch sustainable. Actually irony austin, chicharrones 3 wolf moon asymmetrical williamsburg hammock tattooed. Viral tumeric yr, yuccie enamel pin la croix succulents roof party shoreditch cred. ",
+  rating: 5
+  })
+
+Review.create!({
+  product_id: 5,
+  user_id: 1,
+  description: "WTF?",
+  rating: 3
+  })
+
+Review.create!({
+  product_id: 6,
+  user_id: 2,
+  description: "Can't stand this.",
+  rating: 1
+  })
+
+Review.create!({
+  product_id: 6,
+  user_id: 4,
+  description: "Totes buy this.",
+  rating: 4
+  })
+
+Review.create!({
+  product_id: 7,
+  user_id: 3,
+  description: "Activated charcoal organic succulents mixtape, single-origin coffee pinterest 90's. Chartreuse hell of single-origin coffee woke tbh, keffiyeh health goth fanny pack craft beer ethical hella DIY viral.",
+  rating: 5
+  })
+
+Review.create!({
+  product_id: 7,
+  user_id: 4,
+  description: "You gotta buy this!",
+  rating: 4
+  })
+
+Review.create!({
+  product_id: 8,
+  user_id: 1,
+  description: "Deep v echo park migas, subway tile XOXO mixtape pork belly freegan locavore bespoke tousled. Lyft celiac street art, air plant poutine seitan pitchfork 3 wolf moon before they sold out.",
+  rating: 3
+  })
+
+Review.create!({
+  product_id: 8,
+  user_id: 2,
+  description: "Narwhal scenester schlitz, deep v organic aesthetic leggings enamel pin. Cray quinoa williamsburg, XOXO stumptown mumblecore vexillologist activated charcoal microdosing. ",
+  rating: 4
+  })
+
+Review.create!({
+  product_id: 9,
+  user_id: 2,
+  description: "Cliche hoodie tumeric wayfarers typewriter, poutine echo park forage single-origin coffee. ",
+  rating: 4
+  })
+
+Review.create!({
+  product_id: 9,
   user_id: 3,
   description: "Jungle must buy.",
   rating: 5
   })
 
 Review.create!({
-  product_id: 4,
+  product_id: 10,
   user_id: 4,
   description: "You gotta buy this!",
   rating: 4
   })
 
+Review.create!({
+  product_id: 10,
+  user_id: 1,
+  description: "Hexagon kinfolk slow-carb, man braid meditation activated charcoal before they sold out four dollar toast celiac. Brooklyn yr cardigan blue bottle, truffaut ennui locavore pitchfork poke tacos small batch lumbersexual fam activated charcoal tousled.",
+  rating: 4
+  })
+
+Review.create!({
+  product_id: 11,
+  user_id: 2,
+  description: "You gotta buy this!",
+  rating: 4
+  })
+
+Review.create!({
+  product_id: 11,
+  user_id: 4,
+  description: "Godard copper mug banh mi air plant salvia fanny pack flannel tumeric.",
+  rating: 4
+  })
+
+Review.create!({
+  product_id: 12,
+  user_id: 4,
+  description: "Fixie enamel pin tofu jean shorts, keytar hashtag next level pok pok pabst post-ironic selvage cornhole single-origin coffee vaporware venmo.",
+  rating: 4
+  })
+
+Review.create!({
+  product_id: 12,
+  user_id: 3,
+  description: "You gotta buy this!",
+  rating: 4
+  })
 
 
 puts "DONE!"
