@@ -132,5 +132,35 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## USERS
+
+User.create!({
+  first_name: 'Joe',
+  last_name: 'Bob',
+  email: 'joebob@joebob.com',
+  password_digest: 'password'
+})
+
+User.create!({
+  first_name: 'Fred',
+  last_name: 'Mayes',
+  email: 'freddy@test.com',
+  password_digest: 'password'
+})
+
+User.create!({
+  first_name: 'Jane',
+  last_name: 'Doe',
+  email: 'janedoe@email.com',
+  password_digest: 'password'
+})
+
+User.create!({
+  first_name: 'Jessica',
+  last_name: 'Frankenstein',
+  email: 'jessica@fresh.com',
+  password_digest: 'password'
+})
+
 
 puts "DONE!"
