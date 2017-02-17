@@ -26,22 +26,23 @@
       </div>
     </div>
 
-      <div class="dl-vertical">
+      <div class="dl-vertical reviews-container">
         <% @reviews.each do |review| %>
-        <div class="row">
+          <div class="row product-review">
             <dl class="dl-horizontal">
-            <% @user = User.find(review.user_id) %>
-            <dt> Name </dt>
-            <dd> <%= "#{@user.first_name} #{@user.last_name}" %> </dd>
-            <dt> Review </dt>
-            <dd> <%= review.description %> </dd>
-            <dt> Rating </dt>
-            <dd> <%= review.rating %> </dd>
+              <div class="col-sm-12">
+                <% @user = User.find(review.user_id) %>
+                <dt> Name </dt>
+                <dd> <%= "#{@user.first_name} #{@user.last_name}" %> </dd>
+                <dt> Review </dt>
+                <dd> <%= review.description %> </dd>
+                <dt> Rating </dt>
+                <dd> <%= review.rating %> </dd>
+              </div>
+            </div>
           </div>
+        <% end %>
       </div>
-      <% end %>
-
-    </div>
 
 
   </article>
