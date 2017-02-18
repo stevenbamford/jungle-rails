@@ -65,8 +65,11 @@
                 <dd> <%= review.description %> </dd>
                 <dt> Rating </dt>
                 <dd> <%= review.rating %> </dd>
-                <% if current_user.id == @user.id %>
-                  <button class="btn btn-danger">Delete</button>
+                <% if current_user && current_user.id == @user.id %>
+                  <dt>
+                 <%= link_to "Remove", [@product, review], method:
+                 :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
+                  </dt>
                 <% end %>
               </div>
             </div>
