@@ -65,6 +65,9 @@
                 <dd> <%= review.description %> </dd>
                 <dt> Rating </dt>
                 <dd> <%= review.rating %> </dd>
+                <% if current_user.id == @user.id %>
+                  <button class="btn btn-danger">Delete</button>
+                <% end %>
               </div>
             </div>
           </div>
