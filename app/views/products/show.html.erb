@@ -28,10 +28,13 @@
   </article>
 
   <% if current_user %>
-    <%= render "new_review" %>
+    <div class="row new-review">
+      <%= render "new_review" %>
+    </div>
   <% end %>
 
   <div class="dl-vertical reviews-container">
+    <h2> Reviews </h2>
     <%= render "review" %>
   </div>
 
