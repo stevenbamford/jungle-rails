@@ -1,9 +1,22 @@
+<% @reviews = Review.where(product_id: product.id) %>
+<% @ratings = 0 %>
+<% @reviews.each do |review| %>
+  <% @ratings += review.rating %>
+<% end %>
+<% @avg_rating = @ratings / @reviews.length %>
+
 <article class="product">
   <header>
     <%= link_to product do %>
       <%= image_tag product.image.thumb, alt: product.name %>
       <h4><%= product.name %></h4>
     <% end %>
+      <h4>
+        <% for i in 1..@avg_rating %>
+          <i class="fa fa-star" aria-hidden="true"></i>
+        <% end %>
+        <%= @reviews.length %>
+      </h4>
   </header>
   <p class="description">
     <%= product.description %>
@@ -20,9 +33,9 @@
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
   </aside>
-<% if (product.quantity == 0) %>
+<% if product.quantity == 0 %>
   <aside class="sold-out">
-  SOLD OUT!
+    SOLD OUT!
   </aside>
 <% end %>
 </article>
