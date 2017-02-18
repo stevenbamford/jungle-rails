@@ -35,6 +35,14 @@
 
   <div class="dl-vertical reviews-container">
     <h2> Reviews </h2>
+    <div class="avg-rating">
+      <h4>
+        <% for i in 1..@avg_rating %>
+          <i class="fa fa-star" aria-hidden="true"></i>
+        <% end %>
+      </h4>
+      <p><%= @avg_rating %> out of 5 stars</p>
+     </div>
     <%= render "review" %>
   </div>
 
