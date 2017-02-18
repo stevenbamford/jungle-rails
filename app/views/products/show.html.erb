@@ -53,31 +53,32 @@
         </div>
     </div>
     <% end %>
+
       <div class="dl-vertical reviews-container">
-        <% @reviews.each do |review| %>
-          <div class="row product-review">
-            <dl class="dl-horizontal">
-              <div class="col-sm-12">
-                <% @user = User.find(review.user_id) %>
-                <dt> Name </dt>
-                <dd> <%= "#{@user.first_name} #{@user.last_name}" %> </dd>
-                <dt> Review </dt>
-                <dd> <%= review.description %> </dd>
-                <dt> Rating </i></dt>
-                <dd> <% for i in 1..review.rating %>
-                    <i class="fa fa-star" aria-hidden="true"></i>
-                    <% end %>
-                </dd>
-                <% if current_user && current_user.id == @user.id %>
-                  <dt>
-                 <%= link_to "Remove", [@product, review], method:
-                 :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
-                  </dt>
-                <% end %>
+          <% @reviews.each do |review| %>
+              <div class="row product-review">
+                  <dl class="dl-horizontal">
+                    <div class="col-sm-12">
+                        <% @user = User.find(review.user_id) %>
+                        <dt> Name </dt>
+                        <dd> <%= "#{@user.first_name} #{@user.last_name}" %> </dd>
+                        <dt> Review </dt>
+                        <dd> <%= review.description %> </dd>
+                        <dt> Rating </i></dt>
+                        <dd> <% for i in 1..review.rating %>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                            <% end %>
+                        </dd>
+                        <% if current_user && current_user.id == @user.id %>
+                            <dt>
+                                <%= link_to "Remove", [@product, review], method:
+                                :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
+                            </dt>
+                        <% end %>
+                    </div>
+                  </dl>
               </div>
-            </div>
-          </div>
-        <% end %>
+          <% end %>
       </div>
 
 
