@@ -26,9 +26,9 @@
       </div>
     </div>
 
+   <% if current_user %>
     <div class="row">
         <div class="col-sm-6 col-sm-offset-1">
-
             <%= form_for [@product, @new_review]  do |form| %>
                 <% if form.object.errors.any? %>
                     <div class="alert alert-danger">
@@ -52,7 +52,7 @@
             <% end %>
         </div>
     </div>
-
+    <% end %>
       <div class="dl-vertical reviews-container">
         <% @reviews.each do |review| %>
           <div class="row product-review">
