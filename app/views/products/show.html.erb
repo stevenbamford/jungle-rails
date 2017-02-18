@@ -63,8 +63,11 @@
                 <dd> <%= "#{@user.first_name} #{@user.last_name}" %> </dd>
                 <dt> Review </dt>
                 <dd> <%= review.description %> </dd>
-                <dt> Rating </dt>
-                <dd> <%= review.rating %> </dd>
+                <dt> Rating </i></dt>
+                <dd> <% for i in 1..review.rating %>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <% end %>
+                </dd>
                 <% if current_user && current_user.id == @user.id %>
                   <dt>
                  <%= link_to "Remove", [@product, review], method:
