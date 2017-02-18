@@ -6,7 +6,7 @@
               <dt> Name </dt>
               <dd> <%= "#{@user.first_name} #{@user.last_name}" %> </dd>
               <dt> Review </dt>
-              <dd> <%= review.description %> </dd>
+              <dd class="review-description"> <%= review.description %> </dd>
               <dt> Rating </i></dt>
               <dd> <% for i in 1..review.rating %>
                   <i class="fa fa-star" aria-hidden="true"></i>
