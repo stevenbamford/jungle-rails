@@ -1,4 +1,7 @@
 class ReviewsController < ApplicationController
+
+  before_filter :authorize
+
   def create
     @product = Product.find params[:product_id]
     @new_review = @product.reviews.new(review_params)
@@ -9,6 +12,13 @@ class ReviewsController < ApplicationController
     else
       redirect_to [@product],  notice: 'There was a problem adding your review.'
     end
+  end
+
+  def destroy
+    @product = Product.find params[:product_id]
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to [@product]
   end
 
 
