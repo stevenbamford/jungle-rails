@@ -19,6 +19,7 @@
   width:100%;
 
   .col-sm-12{
+    position:relative;
     padding: 10px 10px;
 
     .review-description{
@@ -48,6 +49,12 @@ i.fa.fa-star{
   align-items:center;
   padding: 10px 0px;
   margin-top:20px;
+
+  a.btn.btn-xs.btn-danger{
+    position: absolute;
+    right:20px;
+    top:20px;
+  }
 
   h2{
     align-self: flex-start;

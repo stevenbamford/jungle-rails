@@ -13,10 +13,8 @@
                   <% end %>
               </dd>
               <% if current_user && current_user.id == @user.id %>
-                  <dt>
-                      <%= link_to "Remove", [@product, review], method:
-                      :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
-                  </dt>
+                <%= link_to "Remove", [@product, review], method:
+                :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger" %>
               <% end %>
           </div>
         </dl>
