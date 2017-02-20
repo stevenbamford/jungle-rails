@@ -4,4 +4,10 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: {case_sensitive: false}, presence: true
   validates :password, presence: true, length: { minimum: 8 }
   has_secure_password
+
+
+  def authenticate_with_credentials(email, password)
+
+  end
+
 end
