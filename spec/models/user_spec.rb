@@ -7,6 +7,17 @@ RSpec.describe User, type: :model do
       expect(@user.save).to be true
     end
 
+    it 'should not save a user if password and password_confirmation do not match' do
+      @user = User.create(first_name: 'Steven', last_name: 'Bamford', email: "sbamford22@gmail.com", password: "abcd", password_confirmation: "abc")
+      expect(@user.save).to be false
+    end
+
+    it 'should not save a user if email has already been taken' do
+      @user1 = User.create(first_name: 'Steven', last_name: 'Bamford', email: "sbamford22@gmail.com", password: "abcd", password_confirmation: "abcd")
+      @user2 = User.create(first_name: 'John', last_name: 'Doe', email: "SBAMFORD22@GMAIL.COM", password: "defg", password_confirmation: "defg")
+      expect(@user2.save).to be false
+    end
+
     it 'should show correct error message if first_name is not set' do
       @user = User.create(first_name: nil, last_name: 'Bamford', email: "sbamford22@gmail.com", password: "abcd", password_confirmation: "abcd")
       expect(@user.errors.full_messages).to include ("First name can't be blank")
