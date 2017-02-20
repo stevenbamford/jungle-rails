@@ -37,6 +37,18 @@ RSpec.describe User, type: :model do
       @user = User.create(first_name: 'Steven', last_name: 'Bamford', email: nil, password: "password", password_confirmation: "password")
       expect(@user.errors.full_messages).to include ("Email can't be blank")
     end
+  end
 
+  describe '.authenticate_with_credentials' do
+    it 'should return an instance of a user if authentication is successful' do
+      @user = User.create(first_name: 'Steven', last_name: 'Bamford', email: "sbamford22@gmail.com", password: "password", password_confirmation: "password")
+      expect(User.authenticate_with_credentials("sbamford22@gmail.com", "password")).to eq(User.find_by_email("sbamford22@gmail.com"))
+    end
+
+    it 'should return nil if authentication fails' do
+      @user = User.create(first_name: 'Steven', last_name: 'Bamford', email: "sbamford22@gmail.com", password: "password", password_confirmation: "password")
+      expect(User.authenticate_with_credentials("sbamford22@gmail.com", "abcdefgh")).to eq(nil)
+
+    end
   end
 end
