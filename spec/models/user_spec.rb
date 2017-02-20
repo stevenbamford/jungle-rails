@@ -48,7 +48,16 @@ RSpec.describe User, type: :model do
     it 'should return nil if authentication fails' do
       @user = User.create(first_name: 'Steven', last_name: 'Bamford', email: "sbamford22@gmail.com", password: "password", password_confirmation: "password")
       expect(User.authenticate_with_credentials("sbamford22@gmail.com", "abcdefgh")).to eq(nil)
+    end
 
+    it 'should return user if visitor types email in wrong case' do
+      @user = User.create(first_name: 'Steven', last_name: 'Bamford', email: "sbamford22@gmail.com", password: "password", password_confirmation: "password")
+      expect(User.authenticate_with_credentials("SBAMFORD22@gmail.com", "password")).to eq(User.find_by_email("sbamford22@gmail.com"))
+    end
+
+    it 'should return user if visitor types in spaces before/after email' do
+      @user = User.create(first_name: 'Steven', last_name: 'Bamford', email: "sbamford22@gmail.com", password: "password", password_confirmation: "password")
+      expect(User.authenticate_with_credentials("  SBAMFORD22@gmail.com  ", "password")).to eq(User.find_by_email("sbamford22@gmail.com"))
     end
   end
 end
