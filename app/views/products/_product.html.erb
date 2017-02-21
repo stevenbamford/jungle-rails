@@ -3,7 +3,9 @@
 <% @reviews.each do |review| %>
   <% @ratings += review.rating %>
 <% end %>
-<% @avg_rating = @ratings / @reviews.length %>
+<% if @reviews.length > 0 %>
+  <% @avg_rating = @ratings / @reviews.length %>
+<% end %>
 
 <article class="product">
   <header>
@@ -12,10 +14,12 @@
       <h4><%= product.name %></h4>
     <% end %>
       <h4>
-        <% for i in 1..@avg_rating %>
-          <i class="fa fa-star" aria-hidden="true"></i>
+        <% if @reviews.length > 0 %>
+          <% for i in 1..@avg_rating %>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          <% end %>
+          <%= @reviews.length %>
         <% end %>
-        <%= @reviews.length %>
       </h4>
   </header>
   <p class="description">
