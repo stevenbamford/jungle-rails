@@ -19,7 +19,6 @@ RSpec.feature "AddToCarts", type: :feature, js: true do
   scenario "Click on product" do
 
     visit root_path
-
     first('article.product').find_link("Add").click
 
     sleep(3)
@@ -28,5 +27,4 @@ RSpec.feature "AddToCarts", type: :feature, js: true do
     save_screenshot
 
   end
-
 end
