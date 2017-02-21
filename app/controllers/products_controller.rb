@@ -12,7 +12,9 @@ class ProductsController < ApplicationController
     @reviews.each do |review|
       @ratings += review.rating
     end
-    @avg_rating = @ratings / @reviews.length
+    if @reviews.length > 0
+      @avg_rating = @ratings / @reviews.length
+    end
   end
 
 end
