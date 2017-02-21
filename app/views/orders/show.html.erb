@@ -5,7 +5,10 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Thank you for your order! A confirmation email has been sent to <%= @order.email %>.</h4>
+    <h4>Thank you for your order!
+    <% if current_user %>
+      A confirmation email has been sent to <%= current_user.email %>.</h4>
+    <% end %>
   </div>
    <table class="table table-bordered">
      <thead>
