@@ -6,15 +6,10 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find params[:id]
-    @reviews = Review.where(product_id: @product.id).sort { |a,b| b.created_at <=> a.created_at }
-    @new_review = Review.new(product: @product)
-    @ratings = 0
-    @reviews.each do |review|
-      @ratings += review.rating
-    end
-    if @reviews.length > 0
-      @avg_rating = @ratings / @reviews.length
-    end
+    @reviews = @product.reviews.order(created_at: :desc)
+    @new_review = @product.reviews.new
+    @ratings = @product.total_rating
+    @avg_rating = @product.avg_rating if @product.has_reviews? 
   end
 
 end

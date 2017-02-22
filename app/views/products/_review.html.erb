@@ -2,15 +2,13 @@
     <div class="row product-review">
         <dl class="dl-horizontal">
           <div class="col-sm-12">
-              <% @user = User.find(review.user_id) %>
               <dt> Name </dt>
-              <dd> <%= "#{@user.first_name} #{@user.last_name}" %> </dd>
+              <dd> <%= "#{review.user.first_name} #{review.user.last_name}" %> </dd>
               <dt> Review </dt>
               <dd class="review-description"> <%= review.description %> </dd>
               <dt> Rating </i></dt>
-              <dd> <% for i in 1..review.rating %>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <% end %>
+              <dd>
+                <%= render "review_stars", product: review.product %>
               </dd>
               <% if current_user && current_user.id == @user.id %>
                 <%= link_to "Remove", [@product, review], method:
