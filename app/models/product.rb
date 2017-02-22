@@ -11,4 +11,15 @@ class Product < ActiveRecord::Base
   validates :quantity, presence: true
   validates :category, presence: true
 
+  def avg_rating
+    reviews.average(:rating).round
+  end
+
+  def has_reviews?
+    reviews.size > 0
+  end
+
+  def sold_out?
+    quantity == 0
+  end
 end
