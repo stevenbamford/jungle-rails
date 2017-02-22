@@ -6,9 +6,7 @@
     <% end %>
       <h4>
         <% if product.has_reviews? %>
-          <% product.avg_rating.times do %>
-            <i class="fa fa-star" aria-hidden="true"></i>
-          <% end %>
+          <%= render "review_stars", product: product %>
           <%= product.reviews.size %>
         <% end %>
       </h4>

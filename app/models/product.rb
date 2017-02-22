@@ -15,6 +15,10 @@ class Product < ActiveRecord::Base
     reviews.average(:rating).round
   end
 
+  def total_rating
+    reviews.sum(:rating)
+  end
+
   def has_reviews?
     reviews.size > 0
   end
